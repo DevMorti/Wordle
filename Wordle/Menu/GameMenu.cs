@@ -8,7 +8,7 @@ namespace Wordle.Menu
 
         public GameMenu(string word)
         {
-            wordle = new Wordle(word);
+            Wordle = new Wordle(word);
             DisplayMenu();
         }
 
@@ -16,14 +16,14 @@ namespace Wordle.Menu
         {
             bool correctWordle = false;
 
-            wordle.PrintWordle();
-            while(wordle.LastedTrys != 0)
+            Wordle.PrintWordle();
+            while(Wordle.LastedTrys != 0)
             {
                 Console.WriteLine();
                 string input = InputOption();
-                wordle.RenewWordle(input);
+                Wordle.RenewWordle(input);
 
-                if (wordle.Inputs[wordle.Inputs.Count - 1] == wordle.Word)
+                if (Wordle.Inputs[Wordle.Inputs.Count - 1] == Wordle.Word)
                 {
                     correctWordle = true;
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -40,7 +40,7 @@ namespace Wordle.Menu
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Viel Glück beim nächsten Mal!");
-                Console.WriteLine("Das Wort ist: " + wordle.Word);
+                Console.WriteLine("Das Wort ist: " + Wordle.Word);
                 Console.ResetColor();
                 Console.ReadKey();
             }
@@ -55,7 +55,7 @@ namespace Wordle.Menu
 
             do
             {
-                Console.Write("Gebe ein Wort mit " + wordle.Word.Length + " Buchstaben ein: ");
+                Console.Write("Gebe ein Wort mit " + Wordle.Word.Length + " Buchstaben ein: ");
                 input = Console.ReadLine();
                 correctInput = true;
                 if (!IsValidateInput(input))

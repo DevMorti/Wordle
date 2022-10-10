@@ -14,3 +14,11 @@ D:\Programmieren\Programmieren 08\C#\Konsolenanwendungen\Wordle\Wordle\obj\Debug
 D:\Programmieren\Programmieren 08\C#\Konsolenanwendungen\Wordle\Wordle\obj\Debug\Wordle.csproj.CoreCompileInputs.cache
 D:\Programmieren\Programmieren 08\C#\Konsolenanwendungen\Wordle\Wordle\obj\Debug\Wordle.exe
 D:\Programmieren\Programmieren 08\C#\Konsolenanwendungen\Wordle\Wordle\obj\Debug\Wordle.pdb
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.AssemblyReference.cache
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.SuggestedBindingRedirects.cache
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.CoreCompileInputs.cache
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.exe
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.pdb
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe.config
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe
+D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.pdb

@@ -14,7 +14,7 @@ namespace Wordle.Menu
 
         protected override bool IsValidateInput(string input)
         {
-            if (input.Length != wordle.Word.Length)
+            if (input.Length != Wordle.Word.Length)
             {
                 return false;
             }
