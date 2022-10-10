@@ -9,12 +9,14 @@ namespace Wordle
         public string Word { get; private set; }
         public int LastedTrys { get; private set; }
         public List<string> Inputs { get; private set; }
+        private Dictionary<char, int> countedCharsInWord { get; set; }
 
         public Wordle(string word)
         {
             Word = word.ToLower();
             LastedTrys = 5;
             Inputs = new List<string>();
+            countedCharsInWord = GetCountedCharsInWord(Word);
         }
 
         public void RenewWordle(string input)
@@ -55,6 +57,24 @@ namespace Wordle
             Console.WriteLine();
 
             PrintTrys();
+        }
+
+        private Dictionary<char, int> GetCountedCharsInWord(string word)
+        {
+            Dictionary<char, int> countedChars = new Dictionary<char, int>();
+            foreach (char c in word)
+            {
+                if (!countedChars.ContainsKey(c))
+                {
+                    countedChars.Add(c, 1);
+                }
+                else
+                {
+                    countedChars[c]++;
+                }
+            }
+
+            return countedChars;
         }
 
         private void PrintTrys()
