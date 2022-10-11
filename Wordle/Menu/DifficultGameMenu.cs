@@ -31,9 +31,32 @@ namespace Wordle.Menu
             return true;
         }
 
-        private bool CouldBeWord(string input)
+        private bool CouldBeWord(string lastInput)
         {
-            throw new NotImplementedException();
+            foreach (string input in Wordle.Inputs)
+            {
+                Dictionary<char, int> comparedChars = Wordle.CompareCountedCharsWithWord(input);
+
+                for (int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == Wordle.Word[i])
+                    {
+                        if (lastInput[i] != Wordle.Word[i])
+                            return false;
+                    }
+                    else if (Wordle.Word.Contains(input[i]))//Word enthält Word, Stelle ist Benutzer bekannt
+                    {
+                        comparedChars[input[i]]--;
+                        if(!lastInput.Contains(input[i]) || lastInput[i] == input[i])//aktueller Input: enthält, nicht an dieser Stelle
+                            return false;
+                    }
+                    else if (lastInput.Contains(input[i]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

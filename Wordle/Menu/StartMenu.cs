@@ -14,7 +14,8 @@ namespace Wordle.Menu
             Console.WriteLine("Wähle eine Option aus:");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("[1] Einfaches Wordle");
-            Console.WriteLine("[2] Wörterliste erstellen");
+            Console.WriteLine("[2] Schweres Wordle");
+            Console.WriteLine("[3] Wörterliste erstellen");
             Console.ResetColor();
 
             InputOption();
@@ -53,6 +54,25 @@ namespace Wordle.Menu
                         correctInput = true;
                         break;
                     case "2":
+                        try
+                        {
+                            new DifficultGameMenu(WordListManager.GetRandomWord());
+                        }
+                        catch (FileNotFoundException ex)
+                        {
+                            new CreateWordlistMenu();
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine(ex.Message);
+                            Console.ResetColor();
+                            Console.ReadKey();
+                            new StartMenu();
+                        }
+                        correctInput = true;
+                        break;
+                    case "3":
                         new CreateWordlistMenu();
                         correctInput = true;
                         break;

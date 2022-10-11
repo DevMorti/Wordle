@@ -59,7 +59,7 @@ namespace Wordle
             PrintTrys();
         }
 
-        private Dictionary<char, int> GetCountedCharsInWord(string word)
+        public Dictionary<char, int> GetCountedCharsInWord(string word)
         {
             Dictionary<char, int> countedChars = new Dictionary<char, int>();
             foreach (char c in word)
@@ -77,9 +77,9 @@ namespace Wordle
             return countedChars;
         }
 
-        private Dictionary<char, int> CompareCountedCharsWithWord(string word)
+        public Dictionary<char, int> CompareCountedCharsWithWord(string word)
         {
-            Dictionary<char, int> countedChars = new Dictionary<char, int>(countedCharsInWord);
+            Dictionary<char, int> countedChars = new Dictionary<char, int>(countedCharsInWord); //Copy of countedChars
             for (int i = 0; i < word.Length; i++)
             {
                 if (word[i] == Word[i])
@@ -95,7 +95,6 @@ namespace Wordle
         {
             foreach(string input in Inputs)
             {
-                //Copy of countedChars
                 Dictionary<char, int> comparedChars = CompareCountedCharsWithWord(input);
 
                 for (int i = 0; i < input.Length; i++)
