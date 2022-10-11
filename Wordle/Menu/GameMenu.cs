@@ -34,7 +34,6 @@ namespace Wordle.Menu
                     Console.WriteLine("Du hast gewonnen!");
                     Console.ResetColor();
                     AskForSaving();
-                    Console.ReadKey();
                     break;
                 }
             }
@@ -46,7 +45,6 @@ namespace Wordle.Menu
                 Console.WriteLine("Das Wort ist: " + Wordle.Word);
                 Console.ResetColor();
                 AskForSaving();
-                Console.ReadKey();
             }
 
             new StartMenu();
