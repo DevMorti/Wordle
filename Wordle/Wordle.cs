@@ -14,7 +14,7 @@ namespace Wordle
         public Wordle(string word)
         {
             Word = word.ToLower();
-            LastedTrys = 5;
+            LastedTrys = 6;
             Inputs = new List<string>();
             countedCharsInWord = GetCountedCharsInWord(Word);
         }
@@ -77,13 +77,46 @@ namespace Wordle
             return countedChars;
         }
 
+        private Dictionary<char, int> CompareCountedCharsWithWord(string word)
+        {
+            Dictionary<char, int> countedChars = new Dictionary<char, int>(countedCharsInWord);
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == Word[i])
+                {
+                    countedChars[word[i]]--;
+                }
+            }
+
+            return countedChars;
+        }
+
         private void PrintTrys()
         {
             foreach(string input in Inputs)
             {
-                for(int i = 0; i < input.Length; i++)
+                //Copy of countedChars
+                Dictionary<char, int> comparedChars = CompareCountedCharsWithWord(input);
+
+                for (int i = 0; i < input.Length; i++)
                 {
-                    Console.ForegroundColor = GetConsoleColor(input, i);
+                    ConsoleColor consoleColor;
+                    if (input[i] == Word[i])
+                    {
+                        consoleColor = ConsoleColor.Green;
+                    }
+
+                    else if (Word.Contains(input[i]) && comparedChars[input[i]] != 0)
+                    {
+                        comparedChars[input[i]]--;
+                        consoleColor = ConsoleColor.DarkYellow;
+                    }
+
+                    else
+                    {
+                        consoleColor = ConsoleColor.White;
+                    }
+                    Console.ForegroundColor = consoleColor;
                     Console.Write(input[i]);
                 }
                 Console.WriteLine();
@@ -96,24 +129,6 @@ namespace Wordle
                     Console.Write("_ ");
                 }
                 Console.WriteLine();
-            }
-        }
-
-        private ConsoleColor GetConsoleColor(string input, int charIndex)
-        {
-            if (input[charIndex] == Word[charIndex])
-            {
-                return ConsoleColor.Green;
-            }
-
-            else if (Word.Contains(input[charIndex]))
-            {
-                return ConsoleColor.DarkYellow;
-            }
-
-            else
-            {
-                return ConsoleColor.White;
             }
         }
     }

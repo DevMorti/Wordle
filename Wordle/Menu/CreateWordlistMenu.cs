@@ -86,7 +86,7 @@ namespace Wordle.Menu
             {
                 wordList = WordListManager.LoadWordList();
             }
-            catch (FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
                 wordList = new List<string>();
             }
