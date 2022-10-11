@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Wordle.Menu
 {
@@ -31,6 +33,7 @@ namespace Wordle.Menu
                     Console.WriteLine("Herzlichen Glückwunsch!");
                     Console.WriteLine("Du hast gewonnen!");
                     Console.ResetColor();
+                    AskForSaving();
                     Console.ReadKey();
                     break;
                 }
@@ -42,6 +45,7 @@ namespace Wordle.Menu
                 Console.WriteLine("Viel Glück beim nächsten Mal!");
                 Console.WriteLine("Das Wort ist: " + Wordle.Word);
                 Console.ResetColor();
+                AskForSaving();
                 Console.ReadKey();
             }
 
@@ -70,5 +74,56 @@ namespace Wordle.Menu
         }
 
         protected abstract bool IsValidateInput(string input);
+
+        private void AskForSaving()
+        {
+            Console.WriteLine("Können deine Wörter in die Liste eingetragen werden (ja/nein)?");
+            while (true)
+            {
+                Console.Write("Eingabe: ");
+                string input = Console.ReadLine();
+                switch (input)
+                {
+                    case "nein":
+                        return;
+                    case "ja":
+                        SaveInputs();
+                        return;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Fehler: Ungültige Eingabe!");
+                        Console.ResetColor();
+                        break;
+                }
+            }
+        }
+
+        private void SaveInputs()
+        {
+            List<string> wordList;
+            try
+            {
+                wordList = WordListManager.LoadWordList();
+            }
+            catch (FileNotFoundException)
+            {
+                wordList = new List<string>();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+            foreach(string input in Wordle.Inputs)
+            {
+                if (!wordList.Contains(input))
+                {
+                    wordList.Add(input);
+                }
+            }
+
+            WordListManager.SaveList(wordList);
+        }
     }
 }
