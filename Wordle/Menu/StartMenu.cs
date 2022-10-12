@@ -16,6 +16,7 @@ namespace Wordle.Menu
             Console.WriteLine("[1] Einfaches Wordle");
             Console.WriteLine("[2] Schweres Wordle");
             Console.WriteLine("[3] Wörterliste erstellen");
+            Console.WriteLine("[4] Beenden");
             Console.ResetColor();
 
             InputOption();
@@ -74,6 +75,9 @@ namespace Wordle.Menu
                         break;
                     case "3":
                         new CreateWordlistMenu();
+                        correctInput = true;
+                        break;
+                    case "4":
                         correctInput = true;
                         break;
                     default:
