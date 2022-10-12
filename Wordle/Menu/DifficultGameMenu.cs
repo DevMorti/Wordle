@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,9 +47,12 @@ namespace Wordle.Menu
                     }
                     else if (Wordle.Word.Contains(input[i]))//Word enthält Word, Stelle ist Benutzer bekannt
                     {
-                        comparedChars[input[i]]--;
-                        if(!lastInput.Contains(input[i]) || lastInput[i] == input[i])//aktueller Input: enthält, nicht an dieser Stelle
+                        if(!lastInput.Contains(input[i]) //Wort enthält Buchstaben nicht
+                            || lastInput[i] == input[i] //Char ist an der gleichen Stelle
+                            || (comparedChars[input[i]] == 0 //Benutzer ist Anzahl bekannt
+                            && CountCharsInWord(lastInput, input[i]) != CountCharsInWord(Wordle.Word, input[i])))//Anzahl ist nicht die richtige
                             return false;
+                        comparedChars[input[i]]--;
                     }
                     else if (lastInput.Contains(input[i]))
                     {
@@ -57,6 +61,18 @@ namespace Wordle.Menu
                 }
             }
             return true;
+        }
+
+        private int CountCharsInWord(string word, char charToCount)
+        {
+            int count = 0;
+            foreach(char c in word)
+            {
+                if (c == charToCount)
+                    count++;
+            }
+
+            return count;
         }
     }
 }
