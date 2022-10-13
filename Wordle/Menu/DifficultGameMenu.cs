@@ -50,7 +50,7 @@ namespace Wordle.Menu
                         if(!lastInput.Contains(input[i]) //Wort enthält Buchstaben nicht
                             || lastInput[i] == input[i] //Char ist an der gleichen Stelle
                             || (comparedChars[input[i]] == 0 //Benutzer ist Anzahl bekannt
-                            && CountCharsInWord(lastInput, input[i]) != CountCharsInWord(Wordle.Word, input[i])))//Anzahl ist nicht die richtige
+                            && lastInput.Count((c) => c == input[i]) != Wordle.Word.Count((c) => c == input[i])))//Anzahl ist nicht die richtige
                             return false;
                         comparedChars[input[i]]--;
                     }
@@ -61,18 +61,6 @@ namespace Wordle.Menu
                 }
             }
             return true;
-        }
-
-        private int CountCharsInWord(string word, char charToCount)
-        {
-            int count = 0;
-            foreach(char c in word)
-            {
-                if (c == charToCount)
-                    count++;
-            }
-
-            return count;
         }
     }
 }
