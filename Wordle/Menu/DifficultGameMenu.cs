@@ -13,8 +13,9 @@ namespace Wordle.Menu
         {
         }
 
-        protected override bool IsValidateInput(string input)
+        protected override async Task<bool> IsValidateInput(string input)
         {
+            Task<bool> isWord = Task.Run(() => Wiktionary.wiktionary.IsWordOrNoConnection(input));
             if (input.Length != Wordle.Word.Length)
             {
                 return false;
@@ -27,8 +28,11 @@ namespace Wordle.Menu
                 }
             }
             if (!CouldBeWord(input))
+            {
                 return false;
-            return true;
+            }
+            await isWord;
+            return isWord.Result;
         }
 
         private bool CouldBeWord(string lastInput)
