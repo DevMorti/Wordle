@@ -12,21 +12,22 @@ namespace Wordle.Menu
         {
         }
 
-        protected override bool IsValidateInput(string input)
+        protected override async Task<bool> IsValidateInput(string input)
         {
+            Task<bool> isWord = Task.Run(() => Wiktionary.wiktionary.IsWordOrNoConnection(input));
             if (input.Length != Wordle.Word.Length)
             {
                 return false;
             }
-            foreach (char c in input)
+            for (int i = 0; i < input.Length; i++)
             {
-                if (!char.IsLetter(c))
+                if (!char.IsLetter(input[i]))
                 {
                     return false;
                 }
             }
-            //Hier sollte durch eine Api geprüft werden, ob das Wort existiert
-            return true;
+            await isWord;
+            return isWord.Result;
         }
     }
 }

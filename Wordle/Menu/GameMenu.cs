@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Wordle.Menu
 {
@@ -59,8 +60,10 @@ namespace Wordle.Menu
             {
                 Console.Write("Gebe ein Wort mit " + Wordle.Word.Length + " Buchstaben ein: ");
                 input = Console.ReadLine();
+                Task<bool> isValidate = Task.Run(() => IsValidateInput(input));
                 correctInput = true;
-                if (!IsValidateInput(input))
+                isValidate.Wait();
+                if (!isValidate.Result)
                 {
                     correctInput = false;
                     Console.ForegroundColor = ConsoleColor.Red;
@@ -71,7 +74,7 @@ namespace Wordle.Menu
             return input;
         }
 
-        protected abstract bool IsValidateInput(string input);
+        protected abstract Task<bool> IsValidateInput(string input);
 
         private void AskForSaving()
         {

@@ -22,3 +22,16 @@ D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug
 D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe.config
 D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe
 D:\Programmieren\Programmieren 10\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.pdb
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.AssemblyReference.cache
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.SuggestedBindingRedirects.cache
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.CoreCompileInputs.cache
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.exe
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.pdb
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe.config
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.exe
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Wordle.pdb
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Morti\Programmieren\C#\Anwendungen\Konsole\Wordle\Wordle\obj\Debug\Wordle.csproj.CopyComplete
