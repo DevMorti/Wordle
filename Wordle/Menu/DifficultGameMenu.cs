@@ -28,7 +28,6 @@ namespace Wordle.Menu
             }
             if (!CouldBeWord(input))
                 return false;
-            //Hier sollte durch eine Api geprüft werden, ob das Wort existiert
             return true;
         }
 
